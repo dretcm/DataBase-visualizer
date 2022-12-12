@@ -35,6 +35,8 @@ def insert_Query(table, cols, data):
             #print(f"INSERT INTO {table} {cols} VALUES ({n})")
             cur.executemany(f"INSERT INTO {table} {cols} VALUES ({n})", data)
             myConnection.commit()
+        except Exception as e:
+            print(str(e))
 
 def remove_Query(table, cols, data):
     if data:
@@ -46,7 +48,8 @@ def remove_Query(table, cols, data):
                 cad = cad[:-5]
                 cur.execute(f"DELETE FROM {table} WHERE {cad}")
             myConnection.commit()
-
+        except Exception as e:
+            print(str(e))
 
 def get_combinations(values):
     output = values.copy()
