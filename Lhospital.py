@@ -303,6 +303,7 @@ class Window(QMainWindow):
         remove_Query(self.option.currentText(),
             self.col_items, 
             list(self.table.data_removes.values()))
+        self.update_table()
 
 
 if __name__ == '__main__':
